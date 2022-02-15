@@ -19,7 +19,7 @@ namespace _fixacaoEntradaSaida
             idade = Console.ReadLine();
 
 
-
+         
             Console.WriteLine("Digite seu nome : ");
             nome = Console.ReadLine();
 
