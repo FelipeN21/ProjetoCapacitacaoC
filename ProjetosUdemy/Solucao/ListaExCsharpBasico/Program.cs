@@ -65,27 +65,33 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void VerificarParOuImpar0a200() {
 
-            Console.WriteLine("Digite quantos numeros deverao ser lidos");
-            int quantidade = int.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Digite quantos numeros deverao ser lidos");
+                int quantidade = int.Parse(Console.ReadLine());
 
-            int[] soma = new int [quantidade];
-            for (int i = 0; i < quantidade; i++)
-            {
-                soma[i] = int.Parse(Console.ReadLine());
-                
-            }
-            for (int i = 0; i < quantidade; i++)
-            {
-                if (soma[i] < 0 || soma[i] > 200)
+                int[] soma = new int[quantidade];
+                for (int i = 0; i < quantidade; i++)
                 {
-                    Console.WriteLine("Numero fora do intervalo de 0 a 200");
-                }
-                else if (soma[i] % 2 != 0)
-                    {
-                    Console.WriteLine("Impar : " + soma[i]);
-                    
-                }
+                    soma[i] = int.Parse(Console.ReadLine());
 
+                }
+                for (int i = 0; i < quantidade; i++)
+                {
+                    if (soma[i] < 0 || soma[i] > 200)
+                    {
+                        Console.WriteLine("Numero fora do intervalo de 0 a 200");
+                    }
+                    else if (soma[i] % 2 != 0)
+                    {
+                        Console.WriteLine("Impar : " + soma[i]);
+
+                    }
+
+                }
+            }
+            catch (Exception ex) { 
+                Console.WriteLine(ex.Message);  
             }
         }
 
@@ -94,13 +100,20 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void Tabuada()
         {
-            Console.WriteLine("Digite o numero o qual deve ter a tabuada impressa");
-            int Numero = int.Parse(Console.ReadLine());
-            Console.WriteLine("Tabuada do " + Numero);
-            for (int i = 0; i <= 10; i++)
+
+            try
             {
-                Console.WriteLine(i + "X" + Numero + " = " + (i*Numero));
+                Console.WriteLine("Digite o numero o qual deve ter a tabuada impressa");
+                int Numero = int.Parse(Console.ReadLine());
+                Console.WriteLine("Tabuada do " + Numero);
+                for (int i = 0; i <= 10; i++)
+                {
+                    Console.WriteLine(i + "X" + Numero + " = " + (i * Numero));
+                }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message);
+            }
+
 
         }
 
@@ -109,6 +122,7 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void SomaParEImpar()
         {
+            try { 
             int aux = 0;
             int par = 0;
             int impar = 0;
@@ -126,6 +140,7 @@ namespace ListaExCsharpBasico
                 }
             }
             Console.WriteLine("Par : " + par + "\nImpar : " + impar);
+            }catch (Exception ex) { Console.WriteLine(ex.Message); }
 
         }
 
@@ -240,69 +255,74 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void ConversorDeBase()
         {
-            int x = 0;
-            Console.WriteLine("Escolha : ");
-            Console.WriteLine("1-Adicao\n2-Subtracao\n3-Multiplicacao\n4-Divisao");
-         x = int.Parse(Console.ReadLine());
-            while (x != 0) {
-                string menu = "S";
-
-            switch (x)
+            try
             {
-                case 1:
-                        Console.WriteLine("Digite o primeiro numero");
-                        int n1 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o segundo numero");
-                        int n2 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Soma = " + (n1 + n2));
-                        Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
-                             menu = Console.ReadLine().ToUpper();
-                        break;
-
-                case 2:
-                        Console.WriteLine("Digite o primeiro numero");
-                        int n12 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o segundo numero");
-                        int n22 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Subtracao = " + (n12 - n22));
-                        Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
-                        menu = Console.ReadLine().ToUpper();
-                        break;
-
-                case 3:
-                        Console.WriteLine("Digite o primeiro numero");
-                        int n122 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o segundo numero");
-                        int n222 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Multiplicacao = " + (n122 * n222));
-                        Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
-                        menu = Console.ReadLine().ToUpper();
-                        break;
-
-                case 4:
-                        Console.WriteLine("Digite o primeiro numero");
-                        int n1222 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o segundo numero");
-                        int n2222 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Divisao = " + (n1222 / n2222));
-                        Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
-                        menu = Console.ReadLine().ToUpper();
-                        break;
-
-                      
-
-                    default:
-                    Console.WriteLine("Numero Invalido");
-                    break;
-            }
-                if (menu.Equals("S"))
+                int x = 0;
+                Console.WriteLine("Escolha : ");
+                Console.WriteLine("1-Adicao\n2-Subtracao\n3-Multiplicacao\n4-Divisao");
+                x = int.Parse(Console.ReadLine());
+                while (x != 0)
                 {
-                    Console.WriteLine("1-Adicao\n2-Subtracao\n3-Multiplicacao\n4-Divisao");
-                    x = int.Parse(Console.ReadLine());
+                    string menu = "S";
+
+                    switch (x)
+                    {
+                        case 1:
+                            Console.WriteLine("Digite o primeiro numero");
+                            int n1 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite o segundo numero");
+                            int n2 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Soma = " + (n1 + n2));
+                            Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
+                            menu = Console.ReadLine().ToUpper();
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Digite o primeiro numero");
+                            int n12 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite o segundo numero");
+                            int n22 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Subtracao = " + (n12 - n22));
+                            Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
+                            menu = Console.ReadLine().ToUpper();
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Digite o primeiro numero");
+                            int n122 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite o segundo numero");
+                            int n222 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Multiplicacao = " + (n122 * n222));
+                            Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
+                            menu = Console.ReadLine().ToUpper();
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Digite o primeiro numero");
+                            int n1222 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite o segundo numero");
+                            int n2222 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Divisao = " + (n1222 / n2222));
+                            Console.WriteLine("Deseja voltar ao menu?\nS-SIM\nN-NAO");
+                            menu = Console.ReadLine().ToUpper();
+                            break;
+
+
+
+                        default:
+                            Console.WriteLine("Numero Invalido");
+                            break;
+                    }
+                    if (menu.Equals("S"))
+                    {
+                        Console.WriteLine("1-Adicao\n2-Subtracao\n3-Multiplicacao\n4-Divisao");
+                        x = int.Parse(Console.ReadLine());
+                    }
+                    else { x = 0; }
                 }
-                else { x = 0; }
             }
-        }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }//
 
 
         /// <summary>
@@ -310,6 +330,7 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void CalculadoraDeImposto()
         {
+            try { 
             Console.WriteLine("Digite o Salario ou 0 para sair :");
             double salario = Double.Parse(Console.ReadLine());
             while (salario != 0.0)
@@ -327,42 +348,46 @@ namespace ListaExCsharpBasico
                 Console.WriteLine("Digite o Salario ou 0 para sair :");
                 salario = Double.Parse(Console.ReadLine());
             }
-        
+            }catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
         public static void ClassificaNadador()
         {
-            string nome;
-            int idade;
-            int controle = 0;
-            List<Nadador> Nadadores = new List<Nadador>();
-            int x = 1;
-            while (x != 0)
+            try
             {
-                
-               nome = Console.ReadLine();
-               idade = int.Parse(Console.ReadLine());
-                Nadador aux = new Nadador(nome,idade);
-                controle++;
-                if (idade > 5 && idade < 7)
+                string nome;
+                int idade;
+                int controle = 0;
+                List<Nadador> Nadadores = new List<Nadador>();
+                int x = 1;
+                while (x != 0)
                 {
-                    aux.classificacao = "infantil A";
+
+                    nome = Console.ReadLine();
+                    idade = int.Parse(Console.ReadLine());
+                    Nadador aux = new Nadador(nome, idade);
+                    controle++;
+                    if (idade > 5 && idade < 7)
+                    {
+                        aux.classificacao = "infantil A";
+                    }
+                    else if (idade > 8 && idade < 11) { aux.classificacao = "infantil B"; }
+                    else if (idade > 12 && idade < 13) { aux.classificacao = "Juvenil A"; }
+                    else if (idade > 14 && idade < 17) { aux.classificacao = "Juvenil B"; }
+                    else if (idade > 18) { aux.classificacao = "Adultos"; }
+
+                    Nadadores.Add(aux);
+
+                    Console.WriteLine("Deseja Cadastrar mais nadadores: \n1-Sim\n2-Nao");
+                    x = int.Parse(Console.ReadLine());
                 }
-                else if (idade > 8 && idade < 11) { aux.classificacao = "infantil B"; } 
-                else if (idade > 12 && idade < 13) { aux.classificacao = "Juvenil A"; } 
-                else if (idade > 14 && idade < 17) { aux.classificacao = "Juvenil B"; } 
-                else if(idade > 18) { aux.classificacao = "Adultos"; }
+                for (int a = 0; a < controle; a++)
+                {
+                    Console.WriteLine(Nadadores[a].nome + " - " + Nadadores[a].idade + " - " + Nadadores[a].classificacao);
 
-                Nadadores.Add(aux);
-
-                Console.WriteLine("Deseja Cadastrar mais nadadores: \n1-Sim\n2-Nao");
-                x = int.Parse(Console.ReadLine());
+                }
             }
-            for (int a = 0;a < controle ;a++ )
-            {
-               Console.WriteLine(Nadadores[a].nome +" - " +Nadadores[a].idade + " - " + Nadadores[a].classificacao);
-                
-            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
 
@@ -401,34 +426,38 @@ namespace ListaExCsharpBasico
         /// </summary>
         public static void aumentoSalarial()
         {
-            int anos = int.Parse(Console.ReadLine());
-            double salario = Double.Parse(Console.ReadLine());
+            try
+            {
+                int anos = int.Parse(Console.ReadLine());
+                double salario = Double.Parse(Console.ReadLine());
 
-            if (anos > 0 && anos <= 3)
-            {
-                int x = anos;
-            while (x > 0)
+                if (anos > 0 && anos <= 3)
                 {
-                    salario = salario * 1.5;
-                    x--;
-                }
-            }
-            if (anos > 3)
-            {
-            
-                for (int i = 0; i < anos - 3; i++) {
-                    salario = salario * 2;
-                    if ((i + 3 ) % 10 == 0)
+                    int x = anos;
+                    while (x > 0)
                     {
-                        salario = salario * 0.1;
+                        salario = salario * 1.5;
+                        x--;
                     }
                 }
-               
-             
-            
+                if (anos > 3)
+                {
+
+                    for (int i = 0; i < anos - 3; i++)
+                    {
+                        salario = salario * 2;
+                        if ((i + 3) % 10 == 0)
+                        {
+                            salario = salario * 0.1;
+                        }
+                    }
+
+
+
+                }
+
             }
-        
-        
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         
 
