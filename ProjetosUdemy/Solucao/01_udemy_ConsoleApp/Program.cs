@@ -9,10 +9,9 @@ namespace _01_udemy_ConsoleApp
     {
     class Program {
 
-        static void Main(string[] args) {
-
-            Console.WriteLine("First Commit");
-           
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World");
         }
     }
     
